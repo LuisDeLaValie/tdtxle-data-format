@@ -93,6 +93,8 @@ extension DateTimeExtension on DateTime {
     return bef && aft;
   }
 
+  DateTime get date => DateTime(year, month, day);
+
   int get weekMonth {
     var auxday = 0;
     var auxsemana = 0;
