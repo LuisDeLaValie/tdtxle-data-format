@@ -87,7 +87,7 @@ extension DateTimeExtension on DateTime {
     return format;
   }
 
-  bool between(DateTime before, DateTime after) {
+  bool between(DateTime after, DateTime before) {
     var bef = isBefore(before);
     var aft = isAfter(after);
     return bef && aft;
