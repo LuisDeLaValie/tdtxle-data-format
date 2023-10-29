@@ -88,9 +88,13 @@ extension DateTimeExtension on DateTime {
   }
 
   bool between(DateTime after, DateTime before) {
-    var bef = isBefore(before);
-    var aft = isAfter(after);
-    return bef && aft;
+    // var bef = isBefore(before);
+    // var aft = isAfter(after);
+    // return bef && aft;
+
+// Devolvemos `true` si el `DateTime` está entre `start` y `end`.
+    return after.microsecondsSinceEpoch <= microsecondsSinceEpoch &&
+        microsecondsSinceEpoch <= before.microsecondsSinceEpoch;
   }
 
   DateTime get date => DateTime(year, month, day);
