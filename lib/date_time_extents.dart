@@ -70,15 +70,21 @@ extension DateTimeExtension on DateTime {
       's': second.toString(),
     };
 
-    var expre = r"(DD|dd|D|d|Mmm|Mm|Y|y|H|h|MM|mm|S|s|M|m)|.";
+    var expre = r"(DD|dd|D|d|Mmm|Mm|Y|y|H|h|MM|mm|S|s|M|m|{\w+})|.";
     var matches = RegExp(expre).allMatches(format).map((e) => e[0]!).toList();
 
     for (var i = 0; i < matches.length; i++) {
       final matche = matches[i];
-      final value = coincidencias[matche];
 
-      if (value != null) {
-        matches[i] = value;
+      if (matche.contains("{") && matche.contains("}")) {
+        final textMach =
+            RegExp(r"\w+").allMatches(matche).map((e) => e[0]!).toList();
+        matches[i] = textMach.first;
+      } else {
+        final value = coincidencias[matche];
+        if (value != null) {
+          matches[i] = value;
+        }
       }
     }
 
