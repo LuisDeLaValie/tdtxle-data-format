@@ -9,8 +9,9 @@ class PhoneInputFormatter extends TextInputFormatter {
     if (newValue.selection.baseOffset == 0) {
       return newValue;
     }
-
-    if (newText.length > 10) {
+    if (int.tryParse(newText) == null) {
+      return oldValue;
+    } else if (newText.length > 10) {
       return oldValue;
     } else {
       newText = phonFormat(newText);
