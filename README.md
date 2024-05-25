@@ -1,39 +1,72 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+## Format
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+money
+--
 ```dart
-const like = 'sample';
+TextFormField(
+    inputFormatters: [MoneyFormatter()],
+    keyboardType: TextInputType.number,    
+),
+```
+Phone
+--
+```dart
+TextFormField(
+    inputFormatters: [PhoneInputFormatter()],
+    keyboardType: TextInputType.phone,    
+),
+```
+nomber
+--
+```dart
+TextFormField(
+    inputFormatters: [NumberFormatter()],
+    keyboardType: TextInputType.number,    
+),
 ```
 
-## Additional information
+## Estenciones
+Date
+--
+```dart
+    final fecha = DateTime(2023, 9, 15, 15, 24, 32);
+    
+    fecha.format('D {de} Mm {del} Y H:MM:S') // 15 de Sep del 2023 15:24:32
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+    fecha.format('d Mm Y H:MM:S') // "15 Sep 2023 15:24:32"
+    
+    fecha.format('dd D Mm Y H:MM:S') // "Vie 15 Sep 2023 15:24:32"
+    
+    fecha.format('DD D Mm Y H:MM:S') // "Viernes 15 Sep 2023 15:24:32"
+```
+
+ si el atrivuto [**format**] es nulo por defecto el formato es
+ *D/M/Y* esto con respecto a las sigintes reglas de escritura
+
+ | shorcut | formato | detalles               |
+ |:--------|:--------|:-----------------------|
+ | D       | 08      | formatos para dias     |
+ | d       | 8       | formatos para dias     |
+ | M       | 07      | formatos para meses    |
+ | m       | 7       | formatos para meses    |
+ | Mmm     | Juliuo  | formatos para meses    |
+ | Mm      | Jul     | formatos para meses    |
+ | Y       | 2022    | formatos para años     |
+ | y       | 22      | formatos para años     |
+ | H       | 02      | formatos para horas    |
+ | h       | 2       | formatos para horas    |
+ | MM      | 05      | formatos para minutos  |
+ | mm      | 5       | formatos para minutos  |
+ | S       | 07      | formatos para segundos |
+ | s       | 7       | formatos para segundos |
+
+nombre
+--
+
+```dard
+ 1500.toMOney() // $1500.00
+
+ 15.24566.parsevalor(2) // 15.24
+
+```
