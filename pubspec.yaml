@@ -1,7 +1,8 @@
 name: tdtxle_data_format
-description: A new Flutter package project.
+description: Flutter package that will help you format and validate inputs
 version: 0.0.1
-homepage:
+homepage: https://github.com/LuisDeLaValie/tdtxle-data-format
+repository: https://github.com/LuisDeLaValie/tdtxle-data-format
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
